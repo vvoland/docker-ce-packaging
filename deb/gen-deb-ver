@@ -30,7 +30,7 @@ debVersion="${debVersion//-/$tilde}"
 
 # if we have a "-dev" suffix or have change in Git, this is a nightly build, and
 # we'll create a pseudo version based on commit-date and -sha.
-if [[ "$VERSION" == *-dev ]] || [ -n "$($GIT_COMMAND status --porcelain)" ]; then
+if [[ "$VERSION" == *-dev ]] || [ "$VERSION" == "master" ] || [ "$VERSION" == "main" ] || [ -n "$($GIT_COMMAND status --porcelain)" ]; then
 	export TZ=UTC
 
 	# based on golang's pseudo-version: https://groups.google.com/forum/#!topic/golang-dev/a5PqQuBljF4
