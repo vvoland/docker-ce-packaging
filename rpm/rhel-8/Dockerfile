@@ -18,8 +18,10 @@ RUN --mount=type=secret,id=rh-user --mount=type=secret,id=rh-pass <<-EOT
 			--username="$(cat /run/secrets/rh-user)" \
 			--password="$(cat /run/secrets/rh-pass)"
 
-		subscription-manager repos --enable codeready-builder-for-rhel-8-$(arch)-rpms
-		# dnf config-manager --set-enabled codeready-builder-for-rhel-8-$(arch)-rpms
+		subscription-manager repos \
+			--enable codeready-builder-for-rhel-8-$(arch)-rpms \
+			--enable rhel-8-for-$(arch)-appstream-rpms \
+			--enable rhel-8-for-$(arch)-baseos-rpms
 	fi
 EOT
 
