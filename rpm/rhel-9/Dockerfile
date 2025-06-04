@@ -14,11 +14,13 @@ RUN --mount=type=secret,id=rh-user --mount=type=secret,id=rh-pass <<-EOT
 	if [ ! -f /run/secrets/rh-user ] || [ ! -f /run/secrets/rh-pass ]; then
 		echo "Either RH_USER or RH_PASS is not set. Running build without subscription."
 	else
-		subscription-manager register \
-			--username="$(cat /run/secrets/rh-user)" \
-			--password="$(cat /run/secrets/rh-pass)"
+		echo no
+		#subscription-manager register \
+		#	--username="$(cat /run/secrets/rh-user)" \
+		#	--password="$(cat /run/secrets/rh-pass)"
 
-		subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+		#dnf config-manager --set-enabled ubi-9-codeready-builder-rpms
+		#subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
 		# dnf config-manager --set-enabled codeready-builder-for-rhel-9-$(arch)-rpms
 	fi
 EOT
