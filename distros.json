@@ -17,15 +17,6 @@
         "description": "CentOS Stream 10",
         "end_of_life": "2030"
     },
-    "debian-bullseye": {
-        "image": "debian:bullseye",
-        "arches": [
-            "amd64",
-            "aarch64",
-            "armhf"
-        ],
-        "description": "Debian 11 (oldstable)"
-    },
     "debian-bookworm": {
         "image": "debian:bookworm",
         "arches": [
