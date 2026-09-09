@@ -55,7 +55,7 @@ RUN?=docker run --rm \
 
 DEBIAN_VERSIONS ?= debian-bookworm debian-trixie
 UBUNTU_VERSIONS ?= ubuntu-jammy ubuntu-noble ubuntu-resolute
-RASPBIAN_VERSIONS ?= raspbian-bullseye raspbian-bookworm
+RASPBIAN_VERSIONS ?= raspbian-bookworm
 DISTROS := $(DEBIAN_VERSIONS) $(UBUNTU_VERSIONS) $(RASPBIAN_VERSIONS)
 
 .PHONY: help
